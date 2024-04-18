@@ -127,3 +127,6 @@ nb-configuration.xml
 /phpunit*.xml
 
 /.php-cs-fixer.php
+
+# Assets
+!public/assets/dist/
