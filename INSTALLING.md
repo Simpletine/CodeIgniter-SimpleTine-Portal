@@ -8,20 +8,38 @@ SimpleTine Portal integrates with [Ion Auth 4](https://github.com/benedmunds/Cod
 ## Configuration
 After installation, you can choose the following workflow based on your needs. For those unfamiliar with Ion Auth 4, it's advisable to gain a basic understanding before proceeding to avoid confusion along the way.
 
-
-## Relational Database Setup
-```shell
-$ php spark migrate install_ion_auth
+1. Download project and extract to your project directory
+2. Copy or rename `env` to `.env` or using cmd
+```bash
+$ copy env .env
 ```
 
+3. Set `CI_ENVIRONMENT` to `development` or using cmd
 ```shell
+$ powershell -Command "(Get-Content .env) -replace '# CI_ENVIRONMENT = production', 'CI_ENVIRONMENT = development' | Set-Content .env"
+```
+
+4. Setup Relational Database
+```bash
+$ php spark migrate install_ion_auth
+$ php spark migrate CreateSessions
+```
+
+```bash
 $ php spark db:seed IonAuthSeeder
 ```
 
+5. Start App
+```bash
+$ php spark serve
+```
+
+---
 
 ### Default Login
-Username: admin@admin.com
-Password: password
+> Username: admin@admin.com
+
+> Password: password
 
 
 ## Empty Page Sample
